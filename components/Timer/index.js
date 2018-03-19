@@ -7,6 +7,8 @@ import {
     StatusBar
 } from 'react-native';
 
+import Button from '../Button';
+
 class Timer extends Component {
     render() {
         return (
@@ -16,7 +18,8 @@ class Timer extends Component {
                     <Text style={styles.time}>25:00</Text>
                 </View>
                 <View style={styles.lowerView}>
-                    <Text>Buttons Here</Text>
+                    <Button name={'play-circle'}/>
+                    <Button name={'stop-circle'} />
                 </View>
             </View>
         );
