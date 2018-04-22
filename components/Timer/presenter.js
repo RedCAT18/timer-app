@@ -4,6 +4,8 @@ import {
     Text,
     StyleSheet,
     Platform,
+    Modal,
+    TouchableHighlight,
     StatusBar
 } from 'react-native';
 
@@ -19,6 +21,7 @@ function formatTimes(time) {
 }
 
 class Timer extends Component {
+
     componentWillReceiveProps(nextProps) {
         //call whenever components get new props
         const currentProps = this.props;
@@ -37,25 +40,33 @@ class Timer extends Component {
 
     }
 
-    render() {
-        const { isPlaying, elapsedTime, timerDuration, startTimer, restartTimer, addSecond } = this.props;
-        return (
-            <View style={styles.container}>
-                <StatusBar barStyle={'light-content'} />
-                <View style={styles.upperView}>
-                    <Text style={styles.time}>{ formatTimes(timerDuration - elapsedTime) }</Text>
-                </View>
-                <View style={styles.lowerView}>
-                    { !isPlaying && (
-                        <Button iconName={'play-circle-o'} onPress={startTimer} />
-                    )}
-                    { isPlaying && (
-                        <Button iconName={'stop-circle-o'} onPress={restartTimer} />
-                    )}
-                </View>
-            </View>
-        );
-    }
+  render() {
+    const { 
+      isPlaying, 
+      elapsedTime, 
+      timerDuration, 
+      startTimer, 
+      restartTimer, 
+      addSecond 
+    } = this.props;
+    
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle={'light-content'} />
+        <View style={styles.upperView}>
+          <Text style={styles.time}>{ formatTimes(timerDuration - elapsedTime) }</Text>
+        </View>
+        <View style={styles.lowerView}>
+          { !isPlaying && (
+            <Button iconName={'play-circle-o'} onPress={startTimer} />
+          )}
+          { isPlaying && (
+            <Button iconName={'stop-circle-o'} onPress={restartTimer} />
+          )}
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
