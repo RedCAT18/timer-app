@@ -54,7 +54,9 @@ class Timer extends Component {
       <View style={styles.container}>
         <StatusBar barStyle={'light-content'} />
         <View style={styles.upperView}>
-          <Text style={styles.time}>{ formatTimes(timerDuration - elapsedTime) }</Text>
+          <Text style={styles.time}>
+            { formatTimes(timerDuration - elapsedTime) }
+          </Text>
         </View>
         <View style={styles.lowerView}>
           { !isPlaying && (
